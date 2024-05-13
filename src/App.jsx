@@ -40,14 +40,15 @@ function App() {
   const [state, dispatch] = useReducer(reducer,
     {
       count: 0,
-      currentImage: codeImages[0],
+      currentImage: `${codeImages[0]}`,
     }
   )
 
+  console.log(state.currentImage)
   return (
     <>
       <div className="App">
-        <Carousel btnSymbols={symbols} allDispatch={dispatch}/> 
+        <Carousel btnSymbols={symbols} theImage={state.currentImage} allDispatch={dispatch}/> 
       
       </div>
     </>

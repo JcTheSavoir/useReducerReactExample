@@ -2,9 +2,10 @@ import Button from "./Button"
 import Image from "./Image"
 
 const Carousel = (props) => {
+  console.log(props.theImage)
   return (
     <div className="carouselContainer">
-        {/* <Image image={props.allImages}/> */}
+        <Image image={props.theImage}/>
         <div className="btnContainer">
             <Button dispatch={() => props.allDispatch({type:"DECREMENT"})} inside={props.btnSymbols.left}/>
             <Button dispatch={() => props.allDispatch({type:"INCREMENT"})} inside={props.btnSymbols.right}/>
