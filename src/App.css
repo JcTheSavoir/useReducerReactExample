@@ -43,6 +43,7 @@
 
 .carouselContainer{
   display: flex;
+  flex-flow: column;
 }
 .imgContainer{
   margin: 3em auto 3em auto;
@@ -50,7 +51,7 @@
   height: 62vh
 }
 .img{
-
+ width: 100%;
 }
 .btnContainer{
 

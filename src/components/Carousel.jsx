@@ -2,7 +2,6 @@ import Button from "./Button"
 import Image from "./Image"
 
 const Carousel = (props) => {
-  console.log(props.theImage)
   return (
     <div className="carouselContainer">
         <Image image={props.theImage}/>
