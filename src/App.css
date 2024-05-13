@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+.carouselContainer{
+  display: flex;
+}
+.imgContainer{
+  margin: 3em auto 3em auto;
+  width: 80%;
+  height: 62vh
+}
+.img{
+
+}
+.btnContainer{
+
+}
+.btn{
+
+}
+.removeContainer{
+
+}
