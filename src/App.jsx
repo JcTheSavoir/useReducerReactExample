@@ -19,45 +19,59 @@ const reducer =  (state, action) => {
   // console.log(imageArray)
   switch (action.type) {
    case "INCREMENT":
+    if (imageArray.length === 0) {
+      return {
+        state,
+        currentImage: "https://y.yarn.co/9cccd3ea-b152-4544-8177-a586188b067a_text.gif"
+      }
+    }
     newCount = state.count + 1;
     if (newCount >= imageArray.length) {
       // Reset count to 0 if it goes beyond the array length
       console.log("limit reached; going to start of imagearray")
       newCount = 0
-      return{
-        count: newCount,
-        currentImage: codeImages[newCount]
-      };
-    } else {
-     return{
-        count: newCount,
-        currentImage: codeImages[newCount]
-      }
     }
+    return{
+      count: newCount,
+      currentImage: imageArray[newCount]
+    };
   
     case "DECREMENT":
-      newCount = state.count - 1;
-      if (newCount <= 0) {
-        // Reset count to 0 if it goes beyond the array length
-        newCount = imageArray.length - 1
-        console.log("0 going to end of imagearray")
-        return{
-          count: newCount,
-          currentImage: codeImages[newCount]
-        };
-      } else {
-       return{
-          count: newCount,
-          currentImage: codeImages[newCount]
-        }
+    if (imageArray.length === 0) {
+      return {
+        state,
+        currentImage: "https://y.yarn.co/9cccd3ea-b152-4544-8177-a586188b067a_text.gif"
       }
+    }
+    newCount = state.count - 1;
+    if (newCount < 0) {
+      // Reset count to 0 if it goes beyond the array length
+      newCount = imageArray.length - 1
+      console.log("0 going to end of imagearray")
+    }
+    return{
+      count: newCount,
+      currentImage: imageArray[newCount]
+    };
+
             
     case "REMOVE":
+      imageArray.splice(state.count, 1)
+      if (imageArray.length === 0) {
       return{
-        count: state.count,
-        currentImage: codeImages[state.count]
+        count: 0,
+        currentImage: "https://y.yarn.co/9cccd3ea-b152-4544-8177-a586188b067a_text.gif"
       };
-
+    } else if (state.count >= imageArray.length) {      
+      newCount = imageArray.length - 1;
+    } else {
+      newCount = state.count;
+    }
+    return{
+      count: newCount,
+      currentImage: imageArray[newCount]
+    }
+    
     default:
       return state
   }
