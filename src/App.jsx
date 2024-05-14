@@ -89,6 +89,7 @@ function App() {
   return (
     <>
       <div className="App">
+        <h1 className='appTitle'>Technology</h1>
         <Carousel btnSymbols={symbols} theImage={state.currentImage} allDispatch={dispatch}/> 
       
       </div>

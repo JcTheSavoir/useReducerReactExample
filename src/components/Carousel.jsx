@@ -11,7 +11,7 @@ const Carousel = (props) => {
             <Button dispatch={() => props.allDispatch({type:"INCREMENT"})} inside={props.btnSymbols.right}/>
         </div>
         <div className="removeContainer">
-            <h2>Click the "X" button to remove the image</h2>
+            <h2 className="removeTitle">Click the "X" button to remove the image</h2>
             <Button dispatch={() => props.allDispatch({type:"REMOVE"})} inside={props.btnSymbols.remove}/>
         </div>
       </div>
